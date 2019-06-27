@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<h4><i>The Blogger:</i></h4> <%= link_to @post.blogger.name, blogger_path(@post.blogger) %>
+<h4><i>The Destination:</i></h4> <%= link_to @post.destination.name, destination_path(@post.destination) %>
+<h3>Content:</h3>
+<%= @post.content %>
+<h4>Total 💚: <%= @post.likes %></h4>
+<%= link_to "Add a 💚", "/posts/#{@post.id}?like=true" %>

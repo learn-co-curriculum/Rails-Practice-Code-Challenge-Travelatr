@@ -1,0 +1,20 @@
+<h1>Create a new post!</h1>
+<%= form_for @post do |f| %>
+<p>
+<%= f.label :blogger_id %>:
+<%= f.collection_select :blogger_id, @bloggers, :id, :name %><br>
+</p>
+<p>
+<%= f.label :destination_id %>:
+<%= f.collection_select :destination_id, @destinations, :id, :name %><br>
+</p>
+<p>
+<%= f.label :title %>:
+<%= f.text_field :title %><br>
+</p>
+<p>
+<%= f.label :content %>:
+<%= f.text_area :content %><br>
+</p>
+<%= f.submit %>
+<% end %>
