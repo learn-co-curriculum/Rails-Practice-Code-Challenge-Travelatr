@@ -1,0 +1,8 @@
+<h1><%=@post.title%></h1>
+<h2>By: <%=link_to @author.name, @author%></h2>
+<h2>Location: <%=link_to @destination.name, @destination%></h2>
+<br><br>
+<p><%=@content%></p>
+<h3>This post has <%=@likes%> likes.</h3>
+<h3> Give this post a like.</h3>
+<%=button_to "like", like_path, method: :patch%>
