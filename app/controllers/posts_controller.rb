@@ -19,17 +19,17 @@ class PostsController < ApplicationController
         if @post.valid?
             redirect_to @post
         else
-            render :new
+            redirect_to new_post_path(post)
         end
     end
 
     def update
-        @post = Post.update(post_params)
-            if @post.valid?
-                redirect_to @post
-            else
-                render :edit
-            end
+        @post = Post.create(post_params)
+        if @post.valid?
+            redirect_to @post
+        else
+            render :edit
+        end
     end
 
     def like_post
@@ -39,7 +39,11 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.require(post).permit(:title, :content, :destination_id, :blogger_id)
+        params.require(:post).permit(:title, :content, :destination_id, :blogger_id)
+    end
+    
+    def find_post
+        @post = Post.find(params[:id])
     end
 
     def set_form
@@ -47,10 +51,5 @@ class PostsController < ApplicationController
         @destinations = Destination.all
         @posts = Post.all
     end
-
-    def find_post
-        @post = Post.find(params[:id])
-    end
-
 
 end
