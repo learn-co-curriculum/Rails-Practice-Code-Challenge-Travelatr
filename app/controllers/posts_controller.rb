@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     
     def create
         @post = Post.create(post_params)
+        @post.likes = 0
         if @post.valid?
             redirect_to @post
         else
