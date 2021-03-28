@@ -1,0 +1,11 @@
+<h1>destination:<%=@destination.name%></h1>
+<h3> Check out recent posts about this destination.</h3>
+<ul>
+<% @posts.each do |post|%>
+<li><%=link_to post.title, post%></li>
+<%end%>
+</ul>
+<br>
+<h3>Checkout the most liked posts for this destination.</h3>
+<%=link_to @featured_post.title, @featured_post%>
+<h3>The avearge blogger age for this destination is: <%=@avg_age%></h3>
